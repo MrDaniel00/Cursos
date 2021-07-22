@@ -11,6 +11,7 @@ import { Component } from "@angular/core";
   AgregarPersonas=false;
   agregarPersonaStatus="no se ha agregado a nadies";
   tituloPersona="Ingrese un nombre ";
+  personaCreada= false;
 
 
     constructor(){
@@ -23,10 +24,12 @@ import { Component } from "@angular/core";
     }
 
     onCrearPersonas(){
+      this.personaCreada =true;
       this.agregarPersonaStatus="Persona Agregada";
     }
     onModificarPersona(event: Event){
       this.tituloPersona= (<HTMLInputElement>event.target).value;
 
     }
+
  }
