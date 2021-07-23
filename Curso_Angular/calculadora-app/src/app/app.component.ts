@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   titulo = 'calculadora';
-  operandoA:number= 0;
-  operandoB:number = 0;
-  resultado: number = 0;
 
-  onsumar():void{
-    this.resultado = this.operandoA + this.operandoB;
+  resultadoPadre: number = 0;
+
+  onResultado(resultado: number){
+    this.resultadoPadre = resultado;
+
+
   }
+
 }
