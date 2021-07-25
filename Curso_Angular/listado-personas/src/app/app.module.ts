@@ -1,3 +1,5 @@
+import { PersonasServices } from './personas.services';
+import { LoggingService } from './../LoggingService.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +18,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoggingService,PersonasServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
