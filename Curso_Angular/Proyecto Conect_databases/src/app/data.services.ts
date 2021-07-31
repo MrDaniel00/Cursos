@@ -32,5 +32,19 @@ export class DataServices{
         error=> console.log("error"+ error)
       );
     }
+
+    eliminarPersona(index:number){
+      let url:string;
+      url = 'https://listado-personas-df726-default-rtdb.firebaseio.com/datos/'
+      +index+'.json'
+      this.httpclient.delete(url)
+      .subscribe(
+        Response => console.log('eliminado'+Response),
+        error=> console.log("error"+ error)
+      );
+
+    }
 }
+
+
 

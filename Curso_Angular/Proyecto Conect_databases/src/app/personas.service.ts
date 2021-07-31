@@ -51,5 +51,15 @@ export class PersonasService{
     eliminarPersona(index:number){
         this.loggingService.enviaMensajeAConsola("eliminar persona con indice: " + index);
         this.personas.splice(index,1);
+        this.dataservice.eliminarPersona(index);
+        this.modificarPersonas();
+    }
+
+    modificarPersonas(){
+       if(this.personas !== null){
+         this.dataservice.GuardarPersonas(this.personas);
+
+       }
     }
 }
+
