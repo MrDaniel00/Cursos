@@ -1,5 +1,5 @@
+import { Persona } from './../persona.model';
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../persona.model';
 import { LoggingService } from '../LoggingService.service';
 import { PersonasService } from '../personas.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,15 +13,21 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 export class PersonasComponent implements OnInit {
 
   personas: Persona[] = [];
-  
+
   constructor(private loggingService: LoggingService,
               private personasService: PersonasService,
               private router: Router,
               private route:ActivatedRoute
               ){}
-    
+
     ngOnInit(): void {
-     this.personas = this.personasService.personas;
+     this.personasService.ObtenerPersonas()
+     .subscribe(
+       (personas: Persona[]) =>{
+         this.personas = personas;
+         this.personasService.setPersonas(personas);
+       }
+     )
     }
 
     irAgregar(){

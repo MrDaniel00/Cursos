@@ -15,13 +15,11 @@ export class DataServices{
       Response =>console.log("guardado"+Response),
       error => console.log("error"+error)
     );
-
-
-
-
-
-
-
    }
+
+   CargarPersonas(){
+     return this.httpclient.get('https://listado-personas-df726-default-rtdb.firebaseio.com/datos.json')
+
+    }
 }
 
