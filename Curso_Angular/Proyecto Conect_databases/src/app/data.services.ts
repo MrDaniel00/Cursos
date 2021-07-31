@@ -21,5 +21,16 @@ export class DataServices{
      return this.httpclient.get('https://listado-personas-df726-default-rtdb.firebaseio.com/datos.json')
 
     }
+
+    modificarPersona(index:number, persona: Persona){
+      let url:string;
+      url = 'https://listado-personas-df726-default-rtdb.firebaseio.com/datos/'
+      +index+'.json'
+      this.httpclient.put(url,persona)
+      .subscribe(
+        Response => console.log('modificado'+Response),
+        error=> console.log("error"+ error)
+      );
+    }
 }
 
